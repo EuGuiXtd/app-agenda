@@ -1,0 +1,27 @@
+{
+  "name": "app-agenda",
+  "version": "1.0.0",
+  "description": "Iniciando com o projeto de agenda de consultas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EuGuiXtd/app-agenda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EuGuiXtd/app-agenda/issues"
+  },
+  "homepage": "https://github.com/EuGuiXtd/app-agenda#readme",
+  "dependencies": {
+    "mysql2": "3.0.0",
+    "sequelize": "6.3.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "6.6.1"
+  }
+}
