@@ -1,0 +1,9 @@
+Sprint 1
+    - Criar aplicação base
+    - Rota raiz exibindo Hello Word
+
+Sprint 2
+    - Rota users
+        - Criação (Post) (Não aceitar e-mail repetido)
+        - Listagem de usuários (Get)
+        - Deleção de usuário (Delete)
