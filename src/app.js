@@ -12,6 +12,8 @@ app.get('/', (req, res) => res.status(200).json({ message: 'Olá Mundo!' }));
 
 app.get('/user', User.getAll);
 
-app.post('/user', User.createUser);
+app.post('/user', User.addUser);
+
+app.delete('/user/:id', User.deleteUser);
 
 module.exports = app;

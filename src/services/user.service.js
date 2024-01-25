@@ -1,9 +1,14 @@
 const { User } = require('../models');
 
-const createUser = async (senha, email) => {
-    const newUser = await User.create({ senha, email });
-  
-    return newUser;
+  const addUser = async (senha, email,) => {
+    const user = await User.findOne({
+      where: { email },
+    });
+    if (user) {
+      return { type: 'INPUTS_IN_USE', message: 'User already registered' };
+    }
+    const newuser = await User.create({ senha, email });
+    return { type: null, message: newuser };
   };
 
 
@@ -13,7 +18,17 @@ const createUser = async (senha, email) => {
     return users;
   };
 
+  const deleteUser = async (id) => {
+    const user = await User.destroy(
+      { where: { id } },
+    );
+  
+    console.log(user); 
+    return user;
+  };
+
 module.exports = {
-  createUser,
+  addUser,
   getAll,
+  deleteUser,
 };
