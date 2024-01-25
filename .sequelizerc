@@ -1,5 +1,4 @@
 // app-with-sequelize/.sequelizerc
-
 const path = require('path');
 
 module.exports = {

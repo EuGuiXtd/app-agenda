@@ -9,10 +9,14 @@ module.exports = {
       {
         senha: '123',
         email: 'guilhermedpjf@gmail.com',
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       {
         senha: '321',
         email: 'guilherme@gmail.com',
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
     ], {}),
 
