@@ -1,4 +1,5 @@
 // src/app.js
+require('dotenv').config();
 
 const express = require('express');
 
@@ -15,5 +16,9 @@ app.get('/user', User.getAll);
 app.post('/user', User.addUser);
 
 app.delete('/user/:id', User.deleteUser);
+
+app.put('/user/:id', User.updateUser);
+
+app.post('/login', User.loginUser);
 
 module.exports = app;

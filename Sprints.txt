@@ -7,3 +7,11 @@ Sprint 2
         - Criação (Post) (Não aceitar e-mail repetido)
         - Listagem de usuários (Get)
         - Deleção de usuário (Delete)
+Sprint 3
+    - Rota users
+         - Ao tentar deletar usuário que não existe retornar msg de erro
+         - Incluir campos relevantes no cadastro de usuário (Criação)
+         - Gravar senha no banco de dados criptografada
+         - Criar rota de put para edição do usuário
+   - Rota de login
+         - Passando e-mail e senha retornar um token para acesso as demais rotas da API

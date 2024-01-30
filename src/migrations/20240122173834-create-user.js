@@ -16,6 +16,18 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      nome: {
+        type: Sequelize.STRING
+      },
+      nascimento: {
+        type: Sequelize.DATE
+      },
+      cpf : {
+        type: Sequelize.BIGINT(11)
+      },
+      telefone: {
+        type: Sequelize.BIGINT(11)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
