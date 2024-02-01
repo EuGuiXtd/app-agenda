@@ -61,22 +61,22 @@ const md5 = require('md5');
     cpf,
     telefone,
   ) => {
+    const user = await User.findOne({
+      where: { cpf },
+    });
+    console.log(user)
+    console.log(id)
+    if (user && user.id !== id) {
+      return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
+    }
     console.log(cpf, id)
-    const [updatedUser] = await User.update(
+    const updatedUser = await User.update(
       { senha, email, nome, nascimento, cpf, telefone},
       { where: { id } },
     );
-    console.log(updatedUser.cpf, id)
-    const user = await User.findOne({
-      where: { cpf: cpf, id: { [Op.ne]: id } },
-    });
-    console.log(user)
-    if (user) {
-      return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
-    }
     if (updatedUser === 0) {
       return { type: 'INVALID_ID', message: 'User not found'};
-    }
+    } 
     return { type: null, message: 'User updated'};
   };
 
