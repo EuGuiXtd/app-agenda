@@ -9,9 +9,9 @@ Sprint 2
         - Deleção de usuário (Delete)
 Sprint 3
     - Rota users
-         - Ao tentar deletar usuário que não existe retornar msg de erro
-         - Incluir campos relevantes no cadastro de usuário (Criação)
-         - Gravar senha no banco de dados criptografada
-         - Criar rota de put para edição do usuário
+         - Ao tentar deletar usuário que não existe retornar msg de erro-Feito
+         - Incluir campos relevantes no cadastro de usuário (Criação)-Feito
+         - Gravar senha no banco de dados criptografada-Feito
+         - Criar rota de put para edição do usuário-Feito
    - Rota de login
          - Passando e-mail e senha retornar um token para acesso as demais rotas da API

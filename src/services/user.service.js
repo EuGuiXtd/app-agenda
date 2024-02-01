@@ -1,5 +1,6 @@
 const { User } = require('../models');
 const { GenerateToken } = require('../utils/generateJwt');
+const Op = require('sequelize');
 const md5 = require('md5');
 
   const addUser = async (
@@ -11,10 +12,10 @@ const md5 = require('md5');
     telefone, 
     ) => {
     const user = await User.findOne({
-      where: { email },
+      where: { cpf },
     });
     if (user) {
-      return { type: 'INPUTS_IN_USE', message: 'User already registered' };
+      return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
     }
     const newuser = await User.create({ senha, email, nome, nascimento, cpf, telefone});
     return { type: null,  message: newuser };
@@ -28,7 +29,7 @@ const md5 = require('md5');
     });
     
     if (!user) {
-      return { type: 'INVALID_EMAIL/SENHA', message: 'User Not Found' };
+      return { type: 'INVALID_USER', message: 'User Not Found' };
     }
     const token = await GenerateToken(user.name, email,);
     return { type: null, message: { token } };
@@ -59,11 +60,20 @@ const md5 = require('md5');
     nascimento,
     cpf,
     telefone,
-    ) => {
+  ) => {
+    console.log(cpf, id)
     const [updatedUser] = await User.update(
       { senha, email, nome, nascimento, cpf, telefone},
       { where: { id } },
     );
+    console.log(updatedUser.cpf, id)
+    const user = await User.findOne({
+      where: { cpf: cpf, id: { [Op.ne]: id } },
+    });
+    console.log(user)
+    if (user) {
+      return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
+    }
     if (updatedUser === 0) {
       return { type: 'INVALID_ID', message: 'User not found'};
     }
