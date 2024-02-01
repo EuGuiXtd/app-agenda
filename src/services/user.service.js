@@ -66,7 +66,9 @@ const md5 = require('md5');
     });
     console.log(user)
     console.log(id)
-    if (user && user.id !== id) {
+    console.log(typeof user.id)
+    console.log(typeof id)
+    if (user && user.id != id) {
       return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
     }
     console.log(cpf, id)
