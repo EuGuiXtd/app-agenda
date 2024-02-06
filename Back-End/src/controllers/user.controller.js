@@ -55,13 +55,13 @@ const loginUser = async (req, res) => {
   const updateUser = async (req, res) => {
     const { id } = req.params;
     const { 
+      senha,
       email, 
       nome,
       nascimento,
       cpf,
       telefone,  
     } = req.body;
-    const senha = md5(req.body.senha);
     const { type, message } = await UserService.updateUser(id, senha, email, nome, nascimento, cpf, telefone);
     if (type === 'INVALID_ID') {
       return res.status(404).json(message);

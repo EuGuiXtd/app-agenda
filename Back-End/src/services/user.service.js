@@ -29,7 +29,7 @@ const md5 = require('md5');
     });
     
     if (!user) {
-      return { type: 'INVALID_USER', message: 'User Not Found' };
+      return { type: 'INVALID_EMAIL/SENHA', message: 'Email ou Senha não encontrado' };
     }
     const token = await GenerateToken(user.name, email,);
     return { type: null, message: { token } };
@@ -61,17 +61,18 @@ const md5 = require('md5');
     cpf,
     telefone,
   ) => {
-    const user = await User.findOne({
-      where: { cpf },
-    });
-    console.log(user)
-    console.log(id)
-    console.log(typeof user.id)
-    console.log(typeof id)
-    if (user && user.id != id) {
-      return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
+    if (cpf) {
+      const
+      user = await User.findOne({
+        where: { cpf },
+      });
+      if (user && user.id != id) {
+        return { type: 'INPUTS_IN_USE', message: 'CPF ja possui cadastro' };
+      }
     }
-    console.log(cpf, id)
+    if (senha) {
+      senha = md5(senha);
+    }
     const updatedUser = await User.update(
       { senha, email, nome, nascimento, cpf, telefone},
       { where: { id } },

@@ -9,9 +9,15 @@ Sprint 2
         - Deleção de usuário (Delete)
 Sprint 3
     - Rota users
-         - Ao tentar deletar usuário que não existe retornar msg de erro-Feito
-         - Incluir campos relevantes no cadastro de usuário (Criação)-Feito
-         - Gravar senha no banco de dados criptografada-Feito
-         - Criar rota de put para edição do usuário-Feito
+         - Ao tentar deletar usuário que não existe retornar msg de erro-Feito  OK
+         - Incluir campos relevantes no cadastro de usuário (Criação)-Feito OK
+         - Gravar senha no banco de dados criptografada-Feito OK
+         - Criar rota de put para edição do usuário-Feito OK
    - Rota de login
-         - Passando e-mail e senha retornar um token para acesso as demais rotas da API
+         - Passando e-mail e senha retornar um token para acesso as demais rotas da API  Não OK
+
+Sprint 4
+   - Criar porjeto do front-end em react (vite) https://vitejs.dev/
+   - Criar tela de login
+
+   - Aceitar editar senha ou os outros dados, rota de update
