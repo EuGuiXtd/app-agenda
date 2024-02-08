@@ -23,6 +23,7 @@ const addUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { senha, email } = req.body;
+  console.log(senha, email);
 
   const { type, message } = await UserService.loginUser(senha, email);
 
