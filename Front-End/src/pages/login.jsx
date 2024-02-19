@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { requestLogin } from '../service/request';
 
 function Login() {
@@ -41,6 +41,7 @@ function Login() {
       console.log(error);
     }
   };
+  const navigate = useNavigate();
 
   if (loged) {
     return (
@@ -55,31 +56,6 @@ function Login() {
   return (
     <div>
       <h1> Login </h1>
-      <label htmlFor="email">
-        Email
-        <input
-          data-testid="common_login__input-email"
-          type="email"
-          id="email"
-          className="email"
-          placeholder="email@email.com"
-          value={ email }
-          onChange={ handleEmail }
-        />
-      </label>
-
-      <label htmlFor="senha">
-        Senha
-        <input
-          data-testid="common_login__input-senha"
-          type="senha"
-          id="senha"
-          className="senha"
-          placeholder="senha"
-          value={ senha }
-          onChange={ handleSenha }
-        />
-      </label>
       {
         (failedTryLogin)
           ? (
@@ -89,23 +65,19 @@ function Login() {
           )
           : null
       }
-      <button
-        data-testid="common_login__button-login"
-        type="button"
-        onClick={ (event) => login(event) }
-        disabled={ formeValidate() }
-      >
-        Login
-      </button>
-
-      <button
-        data-testid="common_login__button-register"
-        type="button"
-      >
-        <Link to="/">
-          Cadastrar
-        </Link>
-      </button>
+      <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Endereço de email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email" onChange={ handleEmail } value={ email }></input>
+    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Senha</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" onChange={ handleSenha } value={ senha }></input>
+  </div>
+  <button type="submit" class="btn btn-primary" onClick={ (event) => login(event) } disabled={ formeValidate() }>Login</button>
+  <button type="submit" class="btn btn-primary" onClick={ () => navigate('/') }>Cadastrar</button>
+</form>
     </div>
   );
 }
